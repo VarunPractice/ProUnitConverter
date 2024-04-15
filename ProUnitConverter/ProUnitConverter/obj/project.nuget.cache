@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "A0tb7VP8vAGXfOzgkBFduotzBDXxrS0PgsXzbCaK4vL2XG96C8ZHWSsyIJBke2C3klXfJSp5WzC01K38X2/gNw==",
+  "dgSpecHash": "2KxgsxsbovSqhKPfbmUg9BsrGakJq5WaTpUO0qllKtvOYKNPuPVJFpmNnwtFrBEvVh8B1VvSHf2+N3z9sZuHSQ==",
   "success": true,
   "projectFilePath": "C:\\Varun\\GitHubCode\\ProUnitConverter\\ProUnitConverter\\ProUnitConverter\\ProUnitConverter.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ervar\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\log4net\\2.0.17\\log4net.2.0.17.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\ervar\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
+    "C:\\Users\\ervar\\.nuget\\packages\\nunit\\4.1.0\\nunit.4.1.0.nupkg.sha512",
+    "C:\\Users\\ervar\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Users\\ervar\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
