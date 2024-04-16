@@ -8,8 +8,6 @@ namespace ProUnitConverter.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        private  log4net.ILog  _logger;
-        private readonly LoginService _loginService;
 
         public Models.LoginModel LoginModel { get; set; }
 
@@ -29,43 +27,50 @@ namespace ProUnitConverter.ViewModels
             set
             {
                 LoginModel.LoginPassword = value;
-                RaisePropertyChanged(nameof(LoginPassword)); // Fixed to notify the correct property
+                RaisePropertyChanged(nameof(LoginPassword));
             }
         }
 
-        public RelayCommand GetLogin { get; set; }
+        // Use a tuple to pass both username and password to the command
+        public RelayCommand<(string Username, string Password)> GetLogin { get; private set; }
 
-        // Constructor that accepts the logger and loginService
-        public LoginViewModel(log4net.ILog logger, LoginService loginService)
+        public LoginViewModel()
         {
-            _logger = logger;
-            _loginService = loginService;
-
             LoginModel = new Models.LoginModel();
-            GetLogin = new RelayCommand(AuthenticateUser);
+
+            // Initialize the RelayCommand with a tuple parameter
+            GetLogin = new RelayCommand<(string Username, string Password)>(AuthenticateUser);
         }
 
-        private void AuthenticateUser()
+        private void AuthenticateUser((string Username, string Password) credentials)
+        {
+            if (AuthenticateUser(credentials.Username, credentials.Password))
+            {
+                // Handle successful authentication
+            }
+            else
+            {
+                // Handle authentication failure
+            }
+        }
+
+        public bool AuthenticateUser(string username, string password)
         {
             try
             {
-                _logger.Info("Attempting to authenticate user {LoginId}" + LoginModel.LoginId);
+                sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {username}");
 
-                var isSuccess = _loginService.AuthenticateUser(LoginModel.LoginId, LoginModel.LoginPassword);
-                if (isSuccess)
-                {
-                    _logger.Info("User {LoginId} authenticated successfully" + LoginModel.LoginId);
-                }
-                else
-                {
-                    _logger.Warn("Failed to authenticate user {LoginId}" + LoginModel.LoginId);
-                }
+                var userIsValid = Services.LoginService.Instance.AuthenticateUser(username, password);
+
+                sharedResources.Logs.Logger.Instance.LogInfo($"Authentication {(userIsValid ? "was successful" : "failed")} for user: {username}");
+
+                return userIsValid;
             }
             catch (Exception ex)
             {
-
-                SharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
-            }           
+                sharedResources.Logs.Logger.Instance.LogError($"Authentication failed with an exception: {ex.Message}");
+                return false;
+            }
         }
     }
 }

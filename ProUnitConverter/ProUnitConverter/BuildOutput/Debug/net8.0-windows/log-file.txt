@@ -7,3 +7,4 @@
 2024-04-16 03:23:26,721 [1] INFO  ProUnitConverter.Views.Login - Pro Unit Converter loading at 16-23-2024 03:04
 2024-04-16 03:32:23,844 [1] INFO  ProUnitConverter.Views.Login - Pro Unit Converter loading at 16-32-2024 03:04
 2024-04-16 04:17:19,896 [1] INFO  ProUnitConverter.Views.Login - Pro Unit Converter loading at 16-17-2024 04:04
+2024-04-16 22:30:34,065 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 16-30-2024 22:04
