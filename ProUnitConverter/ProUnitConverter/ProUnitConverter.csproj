@@ -7,11 +7,24 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <BaseOutputPath>BuildOutput\</BaseOutputPath>
+    <ApplicationIcon>PUCLogo.ico.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Resources\LoginResources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\PUC.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PUCLogo.ico.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.17" />
@@ -23,6 +36,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProUnitConverterTesting\ProUnitConverterTesting.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\LoginResources.resx" />
   </ItemGroup>
 
   <Import Project="..\GlobalLogging\GlobalLogging.projitems" Label="Shared" />

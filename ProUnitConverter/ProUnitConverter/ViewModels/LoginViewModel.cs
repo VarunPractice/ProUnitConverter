@@ -53,11 +53,13 @@ namespace ProUnitConverter.ViewModels
 
                 MainWindow mainWindow = new MainWindow();
                 Application.Current.MainWindow = mainWindow;
+                LoginName = string.Empty; LoginPassword = string.Empty;
                 mainWindow.Show();
             }
             else
             {
                 Application.Current.MainWindow = loginWindow;
+              LoginPassword = string.Empty;
                 loginWindow.ShowDialog(); 
             }
         }
