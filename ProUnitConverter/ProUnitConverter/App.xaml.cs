@@ -9,11 +9,27 @@ namespace ProUnitConverter
  
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            Views.Login loginWindow = new Views.Login();
+            ViewModels.LoginViewModel loginViewModel = new ViewModels.LoginViewModel();
+            loginWindow.ShowDialog();
 
+            if (loginViewModel.IsLoginSuccessful)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
+            else
+            {
+                Shutdown();  // Closes the application if login is unsuccessful
+            }
+        }
         protected override void OnStartup(StartupEventArgs e)
         {
+
             base.OnStartup(e);
-            // Explicit initialization of Logger
+          // Explicit initialization of Logger
             var logger = sharedResources.Logs.Logger.Instance;
 
             // Setup exception handling
