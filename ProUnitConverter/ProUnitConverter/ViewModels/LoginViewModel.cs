@@ -3,6 +3,8 @@ using GalaSoft.MvvmLight.Command;
 using ProUnitConverter.Services;
 using System;
 using System.ComponentModel;
+using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProUnitConverter.ViewModels
 {
@@ -32,42 +34,65 @@ namespace ProUnitConverter.ViewModels
         }
 
         // Use a tuple to pass both username and password to the command
-        public RelayCommand<(string Username, string Password)> GetLogin { get; private set; }
-
+        public RelayCommand GetLogin { get; private set; }
+        public bool IsLoginSuccessful { get; set; }
         public LoginViewModel()
         {
             LoginModel = new Models.LoginModel();
-
-            // Initialize the RelayCommand with a tuple parameter
-            GetLogin = new RelayCommand<(string Username, string Password)>(AuthenticateUser);
+            IsLoginSuccessful = false;
+            GetLogin = new RelayCommand (AuthenticateUser);
         }
 
-        private void AuthenticateUser((string Username, string Password) credentials)
+        private void GetCorrectWindow()
         {
-            if (AuthenticateUser(credentials.Username, credentials.Password))
+            Views.Login loginWindow = new Views.Login();
+
+            if (IsLoginSuccessful)
             {
+               loginWindow.Close();
+
+                MainWindow mainWindow = new MainWindow();
+                Application.Current.MainWindow = mainWindow;
+                mainWindow.Show();
             }
             else
             {
+                Application.Current.MainWindow = loginWindow;
+                loginWindow.ShowDialog(); 
             }
         }
-
-        public bool AuthenticateUser(string username, string password)
+        private void AuthenticateUser()
         {
             try
             {
-                sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {username}");
+                try
+                {
+                    sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {LoginModel.LoginId}");
 
-                var userIsValid = Services.LoginService.Instance.AuthenticateUser(username, password);
+                    if (Services.LoginService.Instance.AuthenticateUser(LoginModel.LoginId, LoginModel.LoginPassword))
+                    {
+                        IsLoginSuccessful = true;
+                        sharedResources.Logs.Logger.Instance.LogInfo("Authentication was Successful for user: {LoginModel.LoginId}");
+                        GetCorrectWindow();   }
+                    else
+                    { IsLoginSuccessful = false; GetCorrectWindow();
+                        sharedResources.Logs.Logger.Instance.LogInfo("Authentication was Successful for user: {LoginModel.LoginId}");
+                    }
 
-                sharedResources.Logs.Logger.Instance.LogInfo($"Authentication {(userIsValid ? "was successful" : "failed")} for user: {username}");
 
-                return userIsValid;
+                }
+                catch (Exception ex)
+                {
+                    IsLoginSuccessful = false;
+                    sharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
+                }
+               
             }
             catch (Exception ex)
             {
+                    IsLoginSuccessful = false;
                 sharedResources.Logs.Logger.Instance.LogError($"Authentication failed with an exception: {ex.Message}");
-                return false;
+                 
             }
         }
     }

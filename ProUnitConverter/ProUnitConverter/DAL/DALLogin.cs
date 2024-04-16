@@ -6,24 +6,38 @@ using Microsoft.Data.SqlClient;
 
 namespace ProUnitConverter.DAL
 {
-    public class DALLogin
+    public sealed class DALLogin
     {
         private string _connectionString;
 
-        public DALLogin()
+        private DALLogin()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["PUCConnectionString"].ConnectionString;
         }
-
+        private static DALLogin _instance { get; set; }
+        private static readonly object _instanceLock = new object();
+        public static DALLogin Instance
+        { get {
+                if (_instance == null)
+                {
+                    lock (_instanceLock)
+                    {
+                        _instance = new DALLogin();
+                    }
+                }
+                return _instance;
+            } }
         public bool ValidateUserCredentials(string username, string password)
         {
+            sharedResources.Logs.Logger.Instance.LogInfo("Validation process started for user : '"+username);
             using (SqlConnection sqlConn = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("ValidateLogin", sqlConn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@Username", username));
-                    cmd.Parameters.Add(new SqlParameter("@Password", password));
+                    cmd.Parameters.Add(new SqlParameter("@Username", (object)username ?? DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@Password", (object)password ?? DBNull.Value));
+
                     try
                     {
                         sqlConn.Open();
@@ -33,10 +47,10 @@ namespace ProUnitConverter.DAL
                     }
                     catch (Exception ex)
                     {
-                        // Ideally use a logging mechanism here
-                        Console.WriteLine("Exception: " + ex.Message);
+                       sharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
                         return false;
                     }
+                    finally { sqlConn.Close(); }
                 }
             }
         }

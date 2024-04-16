@@ -26,15 +26,8 @@ namespace ProUnitConverter.Services
         {
             try
             {
-                // Log without sensitive information
                 sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {username}");
-
-                // Example authentication logic
-                //var userIsValid = CheckUserCredentials(username, password); // Implement this method to check credentials properly
-
-                //sharedResources.Logs.Logger.Instance.LogInfo($"Authentication {(userIsValid ? "was successful" : "failed")} for user: {username}");
-
-                return true;
+                return DAL.DALLogin.Instance.ValidateUserCredentials(username, password);
             }
             catch (Exception ex)
             {
