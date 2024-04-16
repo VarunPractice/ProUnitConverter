@@ -1,1 +1,9 @@
 2024-04-15 06:39:37,282 [1] INFO  ProUnitConverter.Views.Login - This is an informational message
+2024-04-15 06:47:11,194 [1] INFO  ProUnitConverter.Views.Login - Login Window Loaded.
+2024-04-15 06:49:01,018 [1] INFO  ProUnitConverter.Views.Login - Login Window Loaded.
+2024-04-16 00:48:53,727 [1] INFO  ProUnitConverter.Views.Login - Login Window Loaded.
+2024-04-16 03:05:39,351 [1] INFO  ProUnitConverter.Views.Login - Login Window Loaded.
+2024-04-16 03:17:51,405 [1] INFO  ProUnitConverter.Views.Login - Login Window Loaded.
+2024-04-16 03:23:26,721 [1] INFO  ProUnitConverter.Views.Login - Pro Unit Converter loading at 16-23-2024 03:04
+2024-04-16 03:32:23,844 [1] INFO  ProUnitConverter.Views.Login - Pro Unit Converter loading at 16-32-2024 03:04
+2024-04-16 04:17:19,896 [1] INFO  ProUnitConverter.Views.Login - Pro Unit Converter loading at 16-17-2024 04:04

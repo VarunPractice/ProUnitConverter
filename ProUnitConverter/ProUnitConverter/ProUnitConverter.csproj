@@ -14,11 +14,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <PackageReference Include="log4net" Version="2.0.17" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="NUnit" Version="4.1.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.17" />
+    <ProjectReference Include="..\ProUnitConverterTesting\ProUnitConverterTesting.csproj" />
   </ItemGroup>
+
+  <Import Project="..\GlobalLogging\GlobalLogging.projitems" Label="Shared" />
 
 </Project>
