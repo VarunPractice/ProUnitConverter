@@ -46,11 +46,9 @@ namespace ProUnitConverter.ViewModels
         {
             if (AuthenticateUser(credentials.Username, credentials.Password))
             {
-                // Handle successful authentication
             }
             else
             {
-                // Handle authentication failure
             }
         }
 
