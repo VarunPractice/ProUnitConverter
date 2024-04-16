@@ -24,12 +24,25 @@ namespace ProUnitConverter.Services
         }
         public bool AuthenticateUser(string username, string password)
         {
-            SharedResources.Logs.Logger.Instance.LogInfo("Authentication started for user {'"+username+"'} with password '"+password+"'");
-            //
-            SharedResources.Logs.Logger.Instance.LogInfo("Authentication was successful.");
+            try
+            {
+                // Log without sensitive information
+                sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {username}");
 
-            return true;
+                // Example authentication logic
+                //var userIsValid = CheckUserCredentials(username, password); // Implement this method to check credentials properly
+
+                //sharedResources.Logs.Logger.Instance.LogInfo($"Authentication {(userIsValid ? "was successful" : "failed")} for user: {username}");
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                sharedResources.Logs.Logger.Instance.LogError("Authentication failed with an exception: " + ex.Message);
+                return false;
+            }
         }
+
 
     }
 }

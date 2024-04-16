@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ProUnitConverter.Services
 {
-    class PasswordBoxService
+  public   class PasswordBoxService
     {
         public static readonly DependencyProperty BoundPassword =
           DependencyProperty.RegisterAttached("BoundPassword", typeof(string), typeof(PasswordBoxService), 
@@ -25,11 +25,11 @@ namespace ProUnitConverter.Services
         private static void OnBoundPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var box = d as PasswordBox;
+            if (box == null) return;
 
-          
             box.PasswordChanged -= HandlePasswordChanged;
 
-            string newPassword = (string)e.NewValue;
+            string newPassword = (string)e.NewValue ?? string.Empty; // Handle potential null values gracefully
 
             if (!GetUpdatingPassword(box))
             {
@@ -38,6 +38,7 @@ namespace ProUnitConverter.Services
 
             box.PasswordChanged += HandlePasswordChanged;
         }
+
 
         private static void OnBindPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

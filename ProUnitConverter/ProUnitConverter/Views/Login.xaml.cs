@@ -22,7 +22,7 @@ namespace ProUnitConverter.Views
         public Login()
         {
             InitializeComponent();
-            //SharedResources.Logs.Logger.log.Info("Pro Unit Converter loading at " + DateTime.Now.ToString("dd/mm/yyyy HH:MM"));
+           sharedResources.Logs.Logger.Instance.LogInfo("Pro Unit Converter loading at " + DateTime.Now.ToString("dd/mm/yyyy HH:MM"));
         }
 }
 }
