@@ -19,13 +19,10 @@ namespace ProUnitConverter.Views
     /// </summary>
     public partial class Login : Window
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         public Login()
         {
             InitializeComponent();
-
-        log.Info("Login Window Loaded.");
+            //SharedResources.Logs.Logger.log.Info("Pro Unit Converter loading at " + DateTime.Now.ToString("dd/mm/yyyy HH:MM"));
         }
 }
 }
