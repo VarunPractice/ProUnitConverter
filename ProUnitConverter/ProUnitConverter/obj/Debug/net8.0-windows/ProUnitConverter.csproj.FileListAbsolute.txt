@@ -194,3 +194,4 @@ C:\Varun\GitHubCode\ProUnitConverter\ProUnitConverter\ProUnitConverter\obj\Debug
 C:\Varun\GitHubCode\ProUnitConverter\ProUnitConverter\ProUnitConverter\obj\Debug\net8.0-windows\Views\CommonCOntrols\CommonConversionControl .baml
 C:\Varun\GitHubCode\ProUnitConverter\ProUnitConverter\ProUnitConverter\obj\Debug\net8.0-windows\ProUnitConverter_Content.g.cs
 C:\Varun\GitHubCode\ProUnitConverter\ProUnitConverter\ProUnitConverter\obj\Debug\net8.0-windows\Styles\Style.baml
+C:\Varun\GitHubCode\ProUnitConverter\ProUnitConverter\ProUnitConverter\BuildOutput\Debug\net8.0-windows\Dapper.dll

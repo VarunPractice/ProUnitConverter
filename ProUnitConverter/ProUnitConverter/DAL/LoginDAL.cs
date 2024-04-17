@@ -8,11 +8,11 @@ namespace ProUnitConverter.DAL
 {
     public sealed class DALLogin
     {
-        private string _connectionString;
+        private static string _connectionString { get; set; }
 
         private DALLogin()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["PUCConnectionString"].ConnectionString;
+            _connectionString = Environment.GetEnvironmentVariable("PUCConnectionString");
         }
         private static DALLogin _instance { get; set; }
         private static readonly object _instanceLock = new object();
@@ -29,6 +29,7 @@ namespace ProUnitConverter.DAL
             } }
         public bool ValidateUserCredentials(string username, string password)
         {
+           
             sharedResources.Logs.Logger.Instance.LogInfo("Validation process started for user : '"+username);
             using (SqlConnection sqlConn = new SqlConnection(_connectionString))
             {
