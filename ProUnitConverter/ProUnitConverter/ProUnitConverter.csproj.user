@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\CommonCOntrols\CommonConversionControl .xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,7 +18,10 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\LoginStyle.xaml">
+    <Page Update="Styles\Style.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CommonCOntrols\CommonConversionControl .xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Login.xaml">

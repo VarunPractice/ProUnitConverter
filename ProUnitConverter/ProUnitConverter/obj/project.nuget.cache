@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pFSOQEF1kbAS8Zy2fqn5YqIuAet/RmxAH4KffTHdXJrF4CHxB4dpAvOcK102s8UzhbLfw8qlyA+1ydwo+3vT8w==",
+  "dgSpecHash": "+t/vTsNL2N4NT/swRysk11qkcxQuMINCJigUcyUQ5HziMtjXhtWdpfGr7gpGT5wBLZ95T4yAgcMiefNbMet+Qw==",
   "success": true,
   "projectFilePath": "C:\\Varun\\GitHubCode\\ProUnitConverter\\ProUnitConverter\\ProUnitConverter\\ProUnitConverter.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\ervar\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\commonservicelocator\\2.0.2\\commonservicelocator.2.0.2.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\ervar\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\log4net\\2.0.17\\log4net.2.0.17.nupkg.sha512",
     "C:\\Users\\ervar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

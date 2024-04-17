@@ -3,13 +3,13 @@ using GalaSoft.MvvmLight.Command;
 using ProUnitConverter.Services;
 using System;
 using System.ComponentModel;
+using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProUnitConverter.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        private  log4net.ILog  _logger;
-        private readonly LoginService _loginService;
 
         public Models.LoginModel LoginModel { get; set; }
 
@@ -29,43 +29,73 @@ namespace ProUnitConverter.ViewModels
             set
             {
                 LoginModel.LoginPassword = value;
-                RaisePropertyChanged(nameof(LoginPassword)); // Fixed to notify the correct property
+                RaisePropertyChanged(nameof(LoginPassword));
             }
         }
 
-        public RelayCommand GetLogin { get; set; }
-
-        // Constructor that accepts the logger and loginService
-        public LoginViewModel(log4net.ILog logger, LoginService loginService)
+        // Use a tuple to pass both username and password to the command
+        public RelayCommand GetLogin { get; private set; }
+        public bool IsLoginSuccessful { get; set; }
+        public LoginViewModel()
         {
-            _logger = logger;
-            _loginService = loginService;
-
             LoginModel = new Models.LoginModel();
-            GetLogin = new RelayCommand(AuthenticateUser);
+            IsLoginSuccessful = false;
+            GetLogin = new RelayCommand (AuthenticateUser);
         }
 
+        private void GetCorrectWindow()
+        {
+            Views.Login loginWindow = new Views.Login();
+
+            if (IsLoginSuccessful)
+            {
+               loginWindow.Close();
+
+                MainWindow mainWindow = new MainWindow();
+                Application.Current.MainWindow = mainWindow;
+                LoginName = string.Empty; LoginPassword = string.Empty;
+                mainWindow.Show();
+            }
+            else
+            {
+                Application.Current.MainWindow = loginWindow;
+              LoginPassword = string.Empty;
+                loginWindow.ShowDialog(); 
+            }
+        }
         private void AuthenticateUser()
         {
             try
             {
-                _logger.Info("Attempting to authenticate user {LoginId}" + LoginModel.LoginId);
+                try
+                {
+                    sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {LoginModel.LoginId}");
 
-                var isSuccess = _loginService.AuthenticateUser(LoginModel.LoginId, LoginModel.LoginPassword);
-                if (isSuccess)
-                {
-                    _logger.Info("User {LoginId} authenticated successfully" + LoginModel.LoginId);
+                    if (Services.LoginService.Instance.AuthenticateUser(LoginModel.LoginId, LoginModel.LoginPassword))
+                    {
+                        IsLoginSuccessful = true;
+                        sharedResources.Logs.Logger.Instance.LogInfo("Authentication was Successful for user: {LoginModel.LoginId}");
+                        GetCorrectWindow();   }
+                    else
+                    { IsLoginSuccessful = false; GetCorrectWindow();
+                        sharedResources.Logs.Logger.Instance.LogInfo("Authentication was Successful for user: {LoginModel.LoginId}");
+                    }
+
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    _logger.Warn("Failed to authenticate user {LoginId}" + LoginModel.LoginId);
+                    IsLoginSuccessful = false;
+                    sharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
                 }
+               
             }
             catch (Exception ex)
             {
-
-                SharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
-            }           
+                    IsLoginSuccessful = false;
+                sharedResources.Logs.Logger.Instance.LogError($"Authentication failed with an exception: {ex.Message}");
+                 
+            }
         }
     }
 }

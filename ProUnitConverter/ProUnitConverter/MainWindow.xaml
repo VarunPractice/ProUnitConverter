@@ -3,10 +3,118 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:VM="clr-namespace:ProUnitConverter.ViewModels"
         xmlns:local="clr-namespace:ProUnitConverter"
+        xmlns:common="clr-namespace:ProUnitConverter.Views.CommonCOntrols"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Styles/Style.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <VM:MainViewModel/>
+    </Window.DataContext>
+ 
+    <!--<Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Image Source="pack://application:,,,/Resources/PUC.png" Height="40" Margin="5"/>
+            <TextBlock Text="Pro Unit Converter" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
+
+      
+        <TabControl Grid.Row="1" Margin="10">
+            <TabItem Header="Unit Conversion">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock Text="Convert from (Unit1): " VerticalAlignment="Center" Margin="5"/>
+                        <ComboBox Width="150" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit1}"/>
+                        <TextBlock Text="Value: " VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Width="100" Text="{Binding Unit1Value}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Text="Convert to (Unit2): " VerticalAlignment="Center" Margin="5"/>
+                        <ComboBox Width="150" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit2}"/>
+                        <TextBlock Text="Value: " VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Width="100" Text="{Binding Unit2Value}"/>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" Content="Convert" Command="{Binding ConvertCommand}" Margin="5" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Row="2" Text="{Binding ConversionResult}" Margin="5" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>-->
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Background="#007ACC">
+                <Image Source="pack://application:,,,/Resources/PUC.png" Style="{StaticResource ImageStyle}"/>
+
+                <TextBlock Text="Pro Unit Converter" Style="{StaticResource LoginTextBlockStyle}"/>
+            </StackPanel>
+        </Grid>
+        <!-- Main unit selection -->
+        <GroupBox Header="Select First Unit" Style="{StaticResource LoginGroupBoxStyle}" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Label Content="Select First Unit" Style="{StaticResource NormalLabelStyle}"/>
+                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding MainUnits}" SelectedItem="{Binding SelectedMainUnit1}"/>
+                <Label Content="Select SubUnit" Style="{StaticResource NormalLabelStyle}"/>
+                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding SubUnits1}" SelectedItem="{Binding SelectedSubunit1}"/>
+                <TextBox Width="150" Margin="5" Text="{Binding FirstValue}" Style="{StaticResource LoginTextBoxStyle}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Secondary unit selection -->
+        <GroupBox Header="Select Second Unit" Style="{StaticResource LoginGroupBoxStyle}" Grid.Row="2">
+            <StackPanel   Orientation="Horizontal" Margin="5">
+                <Label Content="Select Second Unit" Style="{StaticResource NormalLabelStyle}"/>
+                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding MainUnits}" SelectedItem="{Binding SelectedMainUnit2}"/>
+                <Label Content="Select SubUnit" Style="{StaticResource NormalLabelStyle}"/>
+                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding SubUnits2}" SelectedItem="{Binding SelectedSubunit2}"/>
+                <TextBox Width="150" Margin="5"  Text="{Binding  SecondValue}" Style="{StaticResource LoginTextBoxStyle}"/>
+            </StackPanel>
+        </GroupBox>
+        
+            <Grid Grid.Row="3" Width="250" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="Cancel" Command="{Binding ConvertCommand}" HorizontalAlignment="Right"   Style="{StaticResource LoginButtonStyle}"/>
+                <Button Grid.Column="1" Content="Convert" Command="{Binding ConvertCommand}" HorizontalAlignment="Right"  Style="{StaticResource LoginButtonStyle}"/>
+            </Grid>
+        
+        <!-- Conversion controls -->
+
+        <GroupBox Header="Out" Style="{StaticResource LoginGroupBoxStyle}" Grid.Row="4">
+            <StackPanel Grid.Row="4" Orientation="Horizontal" >
+                <Label Content="Output is :" Style="{StaticResource NormalLabelStyle}" Margin="10" HorizontalAlignment="Left" Width="100"/>
+                <TextBlock Width="300" Text="{Binding OutputValue}" Style="{StaticResource NormalTextBlockStyle}" HorizontalAlignment="Right" Margin="100,5,5,5"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>
+ 

@@ -24,12 +24,18 @@ namespace ProUnitConverter.Services
         }
         public bool AuthenticateUser(string username, string password)
         {
-            SharedResources.Logs.Logger.Instance.LogInfo("Authentication started for user {'"+username+"'} with password '"+password+"'");
-            //
-            SharedResources.Logs.Logger.Instance.LogInfo("Authentication was successful.");
-
-            return true;
+            try
+            {
+                sharedResources.Logs.Logger.Instance.LogInfo($"Authentication started for user: {username}");
+                return DAL.DALLogin.Instance.ValidateUserCredentials(username, password);
+            }
+            catch (Exception ex)
+            {
+                sharedResources.Logs.Logger.Instance.LogError("Authentication failed with an exception: " + ex.Message);
+                return false;
+            }
         }
+
 
     }
 }

@@ -14,7 +14,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Styles/LoginStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/Style.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -25,7 +25,8 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal" Background="#007ACC">
-                <Image/>
+                <Image Source="pack://application:,,,/Resources/PUC.png" Style="{StaticResource ImageStyle}"/>
+
                 <TextBlock Text="Pro Unit Converter" Style="{StaticResource LoginTextBlockStyle}"/>
             </StackPanel> 
         </Grid>
@@ -47,8 +48,8 @@
                                  passwordService:PasswordBoxService.BindPassword="True"
               passwordService:PasswordBoxService.BoundPassword="{Binding LoginPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                     <StackPanel Orientation="Horizontal" >
-                        <Button Content="Login" Width="100" Margin="10" HorizontalAlignment="Center" Style="{StaticResource LoginButtonStyle}" Command="{Binding GetLogin}" />
-                        <Button Content="Cancel" Width="100" Margin="10" HorizontalAlignment="Center" Style="{StaticResource LoginButtonStyle}" />
+                        <Button Content="Login"   HorizontalAlignment="Center" Style="{StaticResource LoginButtonStyle}" Command="{Binding GetLogin}" />
+                        <Button Content="Cancel"  HorizontalAlignment="Center" Style="{StaticResource LoginButtonStyle}" />
 
                     </StackPanel>   
                 </StackPanel>
