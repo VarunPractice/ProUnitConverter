@@ -3,10 +3,62 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:VM="clr-namespace:ProUnitConverter.ViewModels"
         xmlns:local="clr-namespace:ProUnitConverter"
+        xmlns:common="clr-namespace:ProUnitConverter.Views.CommonCOntrols"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="350" Width="700">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Styles/Style.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <VM:MainViewModel/>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <!-- Header with logo and title -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Image Source="pack://application:,,,/Resources/PUC.png" Height="40" Margin="5"/>
+            <TextBlock Text="Pro Unit Converter" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Main content area -->
+        <TabControl Grid.Row="1" Margin="10">
+            <TabItem Header="Unit Conversion">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock Text="Convert from (Unit1): " VerticalAlignment="Center" Margin="5"/>
+                        <ComboBox Width="150" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit1}"/>
+                        <TextBlock Text="Value: " VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Width="100" Text="{Binding Unit1Value}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Text="Convert to (Unit2): " VerticalAlignment="Center" Margin="5"/>
+                        <ComboBox Width="150" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit2}"/>
+                        <TextBlock Text="Value: " VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Width="100" Text="{Binding Unit2Value}"/>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" Content="Convert" Command="{Binding ConvertCommand}" Margin="5" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Row="2" Text="{Binding ConversionResult}" Margin="5" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
+</Window>
 </Window>
