@@ -296,3 +296,78 @@
 2024-04-17 02:45:02,279 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
 2024-04-17 02:45:02,634 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-45-2024 02:04
 2024-04-17 02:45:07,449 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 02:45:45,917 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-45-2024 02:04
+2024-04-17 02:45:50,778 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 02:45:50,779 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 02:45:50,850 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 02:45:51,109 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 02:45:51,233 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-45-2024 02:04
+2024-04-17 03:09:34,480 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 03:09:34,480 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 03:09:34,480 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 03:09:34,489 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 03:09:34,596 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-09-2024 03:04
+2024-04-17 03:15:31,453 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-15-2024 03:04
+2024-04-17 03:15:36,863 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 03:15:36,863 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 03:15:36,892 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 03:15:37,062 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 03:15:37,131 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-15-2024 03:04
+2024-04-17 04:21:18,248 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-21-2024 04:04
+2024-04-17 04:21:24,198 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 04:21:24,199 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 04:21:24,231 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 04:21:24,413 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 04:21:24,472 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-21-2024 04:04
+2024-04-17 04:26:04,949 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-26-2024 04:04
+2024-04-17 04:26:21,215 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 04:26:21,216 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 04:26:21,251 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 04:26:21,426 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 04:26:21,487 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-26-2024 04:04
+2024-04-17 13:24:28,500 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-24-2024 13:04
+2024-04-17 13:24:35,133 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 13:24:35,134 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 13:24:35,267 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 13:24:35,655 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 13:24:35,825 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-24-2024 13:04
+2024-04-17 13:26:10,556 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-26-2024 13:04
+2024-04-17 13:26:15,697 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 13:26:15,698 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 13:26:15,763 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 13:26:16,023 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 13:26:16,172 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-26-2024 13:04
+2024-04-17 14:53:47,227 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-53-2024 14:04
+2024-04-17 14:58:38,940 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-58-2024 14:04
+2024-04-17 14:58:43,380 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 14:58:43,380 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 14:58:43,414 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 14:58:43,575 [1] ERROR sharedResources.Logs.Logger - An unhandled exception occurred: The ConnectionString property has not been initialized. By source: Microsoft.Data.SqlClient
+2024-04-17 14:58:43,617 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-58-2024 14:04
+2024-04-17 14:58:47,130 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 15:00:05,020 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:00:05,021 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:00:13,736 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 15:00:30,503 [1] ERROR sharedResources.Logs.Logger - An unhandled exception occurred: The ConnectionString property has not been initialized. By source: Microsoft.Data.SqlClient
+2024-04-17 15:00:30,554 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-00-2024 15:04
+2024-04-17 15:00:32,851 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 15:00:37,059 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:00:37,059 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:00:39,613 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 15:00:39,750 [1] ERROR sharedResources.Logs.Logger - An unhandled exception occurred: The ConnectionString property has not been initialized. By source: Microsoft.Data.SqlClient
+2024-04-17 15:00:39,809 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-00-2024 15:04
+2024-04-17 15:00:41,976 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 15:01:21,470 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-01-2024 15:04
+2024-04-17 15:01:26,548 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:01:26,548 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:02:13,134 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-02-2024 15:04
+2024-04-17 15:02:35,593 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-02-2024 15:04
+2024-04-17 15:02:40,157 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:02:40,158 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:06:04,465 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-06-2024 15:04
+2024-04-17 15:07:22,414 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-07-2024 15:04
+2024-04-17 15:07:32,708 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:07:32,709 [1] INFO  sharedResources.Logs.Logger - Authentication started for user: admin
+2024-04-17 15:07:32,760 [1] INFO  sharedResources.Logs.Logger - Validation process started for user : 'admin
+2024-04-17 15:07:32,995 [1] INFO  sharedResources.Logs.Logger - Authentication was Successful for user: {LoginModel.LoginId}
+2024-04-17 15:07:33,126 [1] INFO  sharedResources.Logs.Logger - Pro Unit Converter loading at 17-07-2024 15:04
