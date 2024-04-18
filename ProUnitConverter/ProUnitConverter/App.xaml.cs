@@ -29,10 +29,7 @@ namespace ProUnitConverter
         {
 
             base.OnStartup(e);
-          // Explicit initialization of Logger
             var logger = sharedResources.Logs.Logger.Instance;
-
-            // Setup exception handling
             SetupGlobalExceptionHandling();
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
         }
@@ -65,7 +62,6 @@ namespace ProUnitConverter
             }
             else
             {
-                // Fallback logging or handling
                 Console.WriteLine("ExceptionHandler is not initialized.");
             }
         }

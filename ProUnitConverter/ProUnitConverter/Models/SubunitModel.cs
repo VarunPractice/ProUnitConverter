@@ -13,6 +13,6 @@ namespace ProUnitConverter.Models
     {
         public int SubunitId { get; set; }
         public string Name { get; set; }
-        public int UnitId { get; set; } // This corresponds to the UnitID in UnitModel
+        public int UnitId { get; set; }  
     }
 }

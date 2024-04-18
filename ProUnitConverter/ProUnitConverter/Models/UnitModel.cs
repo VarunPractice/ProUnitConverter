@@ -11,10 +11,9 @@ namespace ProUnitConverter.Models
     {
         public int UnitID { get; set; }
         public string Name { get; set; }
-        public double ConversionFactor { get; set; }  
-
-        public List<SubunitModel> Subunits { get; set; }    
+        public ObservableCollection<SubunitModel> Subunits { get; set; } = new ObservableCollection<SubunitModel>();
     }
+
     public class ConversionType
     {
         public string Name { get; set; }

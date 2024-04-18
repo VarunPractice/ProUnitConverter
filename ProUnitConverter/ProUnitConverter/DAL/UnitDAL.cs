@@ -1,63 +1,89 @@
 ﻿using Microsoft.Data.SqlClient;
 using ProUnitConverter.Models;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 
-public class UnitDAL
+namespace ProUnitConverter.DAL
 {
-    private readonly string _connectionString;
-
-    public UnitDAL()
+    public class UnitDAL
     {
-        _connectionString = Environment.GetEnvironmentVariable("PUCConnectionString"); ;
-
-    }
-
-    public List<UnitModel> GetAllUnits()
-    {
-        var units = new List<UnitModel>();
-        using (var connection = new SqlConnection(_connectionString))
+        private static string _connectionString { get; set; }
+        private static UnitDAL _instance { get; set; }
+        private static readonly object _instanceLock = new object();
+        public static UnitDAL Instance
         {
-            var cmd = new SqlCommand("sp_GetAllUnits", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
+            get
             {
-                connection.Open();
-                using (var reader = cmd.ExecuteReader())
+                if (_instance == null)
                 {
-                    while (reader.Read())
+                    lock (_instanceLock)
                     {
-                        var unit = new UnitModel
-                        {
-                            UnitID = reader.GetInt32(reader.GetOrdinal("UnitId")),
-                            Name = reader.GetString(reader.GetOrdinal("UnitName"))
-                        };
-                        units.Add(unit);
+                        _instance = new UnitDAL();
                     }
-                    if (reader.NextResult())
+                }
+                return _instance;
+            }
+        }
+
+        public UnitDAL()
+        {
+            _connectionString = Environment.GetEnvironmentVariable("PUCConnectionString"); ;
+            UnitModel = new UnitModel();
+        }
+        UnitModel UnitModel { get; set; }
+        public ObservableCollection<UnitModel> GetAllUnits()
+        {
+            var units = new ObservableCollection<UnitModel>();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var cmd = new SqlCommand("sp_GetAllUnits", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    connection.Open();
+                    using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            var subunit = new SubunitModel
+                            var unit = new UnitModel
                             {
-                                SubunitId = reader.GetInt32(reader.GetOrdinal("SubunitId")),
-                                Name = reader.GetString(reader.GetOrdinal("SubunitName")),
-                                UnitId = reader.GetInt32(reader.GetOrdinal("UnitId"))
+                                UnitID = reader.GetInt32(reader.GetOrdinal("UnitId")),
+                                Name = reader.GetString(reader.GetOrdinal("UnitName"))
                             };
-                            var parentUnit = units.Find(u => u.UnitID == subunit.UnitId);
-                            if (parentUnit != null)
+                            
+                            units.Add(unit);
+                        }
+                        if (reader.NextResult())
+                        {
+                            while (reader.Read())
                             {
-                                parentUnit.Subunits.Add(subunit);
+                                var subunit = new SubunitModel
+                                {
+                                    SubunitId = reader.GetInt32(reader.GetOrdinal("SubunitId")),
+                                    Name = reader.GetString(reader.GetOrdinal("Name")),
+                                    UnitId = reader.GetInt32(reader.GetOrdinal("UnitId"))
+                                };
+
+                                var parentUnit = units.FirstOrDefault(u => u.UnitID == subunit.UnitId);
+                                if (parentUnit != null)
+                                {
+                                    if (parentUnit.Subunits == null)
+                                        parentUnit.Subunits = new ObservableCollection<SubunitModel>();
+
+                                    parentUnit.Subunits.Add(subunit);
+                                }
                             }
                         }
+
                     }
                 }
+                catch (Exception ex)
+                {
+                    sharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
+                }
             }
-            catch (Exception ex)
-            {
-                sharedResources.GlobalExceptionHandling.ExceptionHandler.Instance.RegisterGlobalExceptionHandler(ex);
-            }
+            return units;
         }
-        return units;
     }
 }

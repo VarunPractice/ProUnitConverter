@@ -76,29 +76,41 @@
                 <TextBlock Text="Pro Unit Converter" Style="{StaticResource LoginTextBlockStyle}"/>
             </StackPanel>
         </Grid>
-        <!-- Main unit selection -->
+        <!-- First Unit selection -->
         <GroupBox Header="Select First Unit" Style="{StaticResource LoginGroupBoxStyle}" Grid.Row="1">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Content="Select First Unit" Style="{StaticResource NormalLabelStyle}"/>
-                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding MainUnits}" SelectedItem="{Binding SelectedMainUnit1}"/>
+                <ComboBox Width="150" ItemsSource="{Binding MainUnits}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding SelectedMainUnit1}"/>
+
                 <Label Content="Select SubUnit" Style="{StaticResource NormalLabelStyle}"/>
-                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding SubUnits1}" SelectedItem="{Binding SelectedSubunit1}"/>
+                <ComboBox Grid.Row="1"
+                  ItemsSource="{Binding SubUnits1}"
+                  DisplayMemberPath="Name"
+                  SelectedValuePath="SubunitId"
+                  SelectedItem="{Binding SelectedSubUnit1, Mode=TwoWay}"
+                  Margin="5" Width="200" Height="30"/>
+
                 <TextBox Width="150" Margin="5" Text="{Binding FirstValue}" Style="{StaticResource LoginTextBoxStyle}"/>
             </StackPanel>
         </GroupBox>
 
         <!-- Secondary unit selection -->
         <GroupBox Header="Select Second Unit" Style="{StaticResource LoginGroupBoxStyle}" Grid.Row="2">
-            <StackPanel   Orientation="Horizontal" Margin="5">
+            <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Select Second Unit" Style="{StaticResource NormalLabelStyle}"/>
-                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding MainUnits}" SelectedItem="{Binding SelectedMainUnit2}"/>
+                <ComboBox Width="150" ItemsSource="{Binding MainUnits}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding SelectedMainUnit2}"/>
+
                 <Label Content="Select SubUnit" Style="{StaticResource NormalLabelStyle}"/>
-                <ComboBox Style="{StaticResource ComboBoxStyle}" Width="150" ItemsSource="{Binding SubUnits2}" SelectedItem="{Binding SelectedSubunit2}"/>
-                <TextBox Width="150" Margin="5"  Text="{Binding  SecondValue}" Style="{StaticResource LoginTextBoxStyle}"/>
+                <ComboBox Width="150"
+ItemsSource="{Binding SubUnits1}"
+DisplayMemberPath="Name"
+SelectedValuePath="UnitID"
+          SelectedValue="{Binding SelectedMainUnit2, Mode=TwoWay}"/>
+                <TextBox Width="150" Margin="5" Text="{Binding SecondValue}" Style="{StaticResource LoginTextBoxStyle}"/>
             </StackPanel>
         </GroupBox>
-        
-            <Grid Grid.Row="3" Width="250" HorizontalAlignment="Right">
+
+        <Grid Grid.Row="3" Width="250" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
